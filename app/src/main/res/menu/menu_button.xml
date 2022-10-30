@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/action_movies"
+        android:icon="@drawable/ic_baseline_movie_24"
+        android:title="Movies" />
+    <item
+        android:id="@+id/action_series"
+        android:icon="@drawable/ic_outline_movie_24"
+        android:title="Series" />
+    <item
+        android:id="@+id/action_users"
+        android:icon="@drawable/ic_baseline_recent_actors_24"
+        android:title="LogOut" />
+
+
+</menu>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".views.home.RegistroFragment"
+    android:background="@color/darkblue">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarRegistro"
+        style="@style/Toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        app:theme="@style/Toolbar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Crea tu cuenta"
+            android:textColor="@color/white"
+            android:textSize="40dp" />
+
+        <EditText
+            android:id="@+id/nameRegistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bordes_textos"
+            android:fontFamily="@font/roboto_bold"
+            android:hint="Nombre"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+
+
+
+        <EditText
+            android:id="@+id/mail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bordes_textos"
+            android:fontFamily="@font/roboto_bold"
+            android:hint="Correo Electronico"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+
+        <EditText
+            android:id="@+id/passwdregistro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bordes_textos"
+            android:fontFamily="@font/roboto_bold"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/passwd1registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/bordes_textos"
+            android:fontFamily="@font/roboto_bold"
+            android:hint="Repite Contraseña"
+            android:inputType="textPassword"
+            android:padding="20dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+
+        <Button
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:backgroundTint="@color/darkyellow"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Crear cuenta"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="@color/white"
+            android:text="Al crear tu cuenta, aceptas los Términos y condiciones
+, la Política de protección de datos."
+            android:fontFamily="@font/roboto_regular"/>
+    </LinearLayout>
+
+</FrameLayout>
