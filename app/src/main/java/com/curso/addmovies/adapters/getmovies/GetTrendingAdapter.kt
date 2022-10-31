@@ -45,8 +45,8 @@ class GetTrendingAdapter(val onClickTrending: (Movie) -> Unit) :
 
         fun bind(item: Movie) {
 
-            val urlImages = ApiService.URL_IMAGES + item.poster_path
-            Glide.with(cardTrending).load(urlImages).into(imageMovieTrending)
+            val urlImagesTrending = ApiService.URL_IMAGES + item.poster_path
+            Glide.with(cardTrending).load(urlImagesTrending).into(imageMovieTrending)
             cardTrending.setOnClickListener {
                 Log.v("Pulso sobre Trending", item.id.toString())
                 onClickTrending(item)

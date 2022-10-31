@@ -17,18 +17,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.curso.addmovies.DataHolder
 import com.curso.addmovies.R
 import com.curso.addmovies.adapters.getmovies.*
-import com.curso.addmovies.adapters.recycler.MainRecyclerAdapter
-import com.curso.addmovies.models.AllCategory
-import com.curso.addmovies.views.getmovies.GetMoviesPopularViewModel
-import com.curso.addmovies.views.getmovies.GetMoviesTrendingViewModel
+import com.curso.addmovies.views.getmovies.*
 import kotlinx.coroutines.launch
 
 
 class HomeFragment : Fragment() {
-    private var mainCategoryRecycler:RecyclerView? = null
-    private var mainRecyclerAdapter: MainRecyclerAdapter? = null
+
     private val viewModelTrending: GetMoviesTrendingViewModel by activityViewModels()
     private val viewModelPopular: GetMoviesPopularViewModel by activityViewModels()
+    private val viewModelNowPaying: GetMoviesNowPlayingViewModel by activityViewModels()
+    private val viewModelTopRated: GetMoviesTopRatedViewModel by activityViewModels()
+    private val viewModelUpComing: GetMoviesUpcomingViewModel by activityViewModels()
+
+
     private lateinit var progressBar: ProgressBar
     private lateinit var adapterTrending: GetTrendingAdapter
     private lateinit var adapterPopular: GetPopularAdapter
@@ -66,6 +67,7 @@ class HomeFragment : Fragment() {
                 launch {
                     viewModelTrending.getMoviesListTrending.collect {
                         adapterTrending.updateData(it.results)
+
                     }
                 }
                 launch {
@@ -73,11 +75,25 @@ class HomeFragment : Fragment() {
                         adapterPopular.updateData(it.results)
                     }
                 }
-
+                launch {
+                    viewModelNowPaying.getMoviesListNowPlaying.collect {
+                        adapterNowPlaying.updateData(it.results)
+                    }
+                }
+                launch {
+                    viewModelTopRated.getMoviesListTopRated.collect {
+                        adapterTopRated.updateData(it.results)
+                    }
+                }
+                launch {
+                    viewModelUpComing.getMoviesListUpcoming.collect {
+                        adapterUpComing.updateData(it.results)
+                    }
+                }
             }
-
         }
         adapterTrending = GetTrendingAdapter {
+
             DataHolder.idMovie = it.id!!
             Log.v("ID TRENDING", "${it.id}")
             findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
@@ -91,19 +107,19 @@ class HomeFragment : Fragment() {
         }
         adapterUpComing = GetUpComingAdapter {
             DataHolder.idMovie = it.id!!
-            Log.v("ID POPULAR", "${it.id}")
+            Log.v("ID UP COMING", "${it.id}")
             findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
 
         }
         adapterNowPlaying = GetNowPlayingAdapter {
             DataHolder.idMovie = it.id!!
-            Log.v("ID POPULAR", "${it.id}")
+            Log.v("ID NOW PLAYING", "${it.id}")
             findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
 
         }
         adapterTopRated = GetTopRatedAdapter {
             DataHolder.idMovie = it.id!!
-            Log.v("ID POPULAR", "${it.id}")
+            Log.v("ID TOP RATED", "${it.id}")
             findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
 
         }
@@ -112,31 +128,34 @@ class HomeFragment : Fragment() {
 
 
 
-        /*val moviesRecylcergettrending =
-            view.findViewById<RecyclerView>(R.id.moviesRecylcergettrending)
-        moviesRecylcergettrending.layoutManager =
-            LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-        moviesRecylcergettrending.adapter = adapterTrending
-        viewModelTrending.getMoviesTrending()
-
-
-        val moviesRecyclerPopular = view.findViewById<RecyclerView>(R.id.moviesRecylcergetPopular)
+        val moviesRecyclerPopular = view.findViewById<RecyclerView>(R.id.popular_recyclerview)
         moviesRecyclerPopular.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
-        moviesRecyclerPopular.adapter = adapterPopular*/
-        /*val allCategory: MutableList<AllCategory> = ArrayList()
-        allCategory.add(AllCategory("Popular", categoryitemList))
-        allCategory.add(AllCategory("Trending", categoryitemList2))
-        allCategory.add(AllCategory("Now Playing", categoryitemList3))
-        allCategory.add(AllCategory("Top Rated", categoryitemList4))
-        allCategory.add(AllCategory("Pelicula del dia",categoryitemList5))*/
+        moviesRecyclerPopular.adapter = adapterPopular
+
+        val moviesRecyclerTrending = view.findViewById<RecyclerView>(R.id.trending_recyclerview)
+        moviesRecyclerTrending.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        moviesRecyclerTrending.adapter = adapterTrending
+
+        val moviesRecyclerNowPlaying = view.findViewById<RecyclerView>(R.id.nowplaying_recyclerview)
+        moviesRecyclerNowPlaying.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        moviesRecyclerNowPlaying.adapter = adapterNowPlaying
+
+        val moviesRecyclerTopRated = view.findViewById<RecyclerView>(R.id.toprated_recyclerview)
+        moviesRecyclerTopRated.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        moviesRecyclerTopRated.adapter = adapterTopRated
+
+        val moviesRecyclerUpComming = view.findViewById<RecyclerView>(R.id.upcomming_recyclerview)
+        moviesRecyclerUpComming.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        moviesRecyclerUpComming.adapter = adapterUpComing
+
+        viewModelNowPaying.getMoviesNowPlaying()
+        viewModelPopular.getMoviesPopular()
+        viewModelTrending.getMoviesTrending()
+        viewModelTopRated.getMoviesTopRated()
+        viewModelUpComing.getMoviesUpcoming()
+
 
     }
-    private fun setmainCategoryRecycler(allCategory: List<AllCategory>){
 
-        mainCategoryRecycler = view?.findViewById(R.id.parent_recyclerview)
-        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this.context)
-        mainCategoryRecycler!!.layoutManager= layoutManager
-        mainRecyclerAdapter = this.context?.let { MainRecyclerAdapter(it,allCategory) }
-        mainCategoryRecycler!!.adapter = mainRecyclerAdapter
-    }
+
 }

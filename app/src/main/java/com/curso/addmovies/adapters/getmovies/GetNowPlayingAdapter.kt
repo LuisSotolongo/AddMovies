@@ -50,8 +50,8 @@ class GetNowPlayingAdapter(val onClickNowPlaying: (Movie) -> Unit) :
 
         fun bind(item: Movie) {
 
-            val urlImages = ApiService.URL_IMAGES + item.poster_path
-            Glide.with(cardNowPlaying).load(urlImages).into(imageMovieNowplaying)
+            val urlImagesNowPlaying = ApiService.URL_IMAGES + item.poster_path
+            Glide.with(cardNowPlaying).load(urlImagesNowPlaying).into(imageMovieNowplaying)
             cardNowPlaying.setOnClickListener {
                 Log.v("Pulso sobre Now Playing", item.id.toString())
                 onClickNowPlaying(item)

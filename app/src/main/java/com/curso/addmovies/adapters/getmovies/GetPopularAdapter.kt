@@ -43,8 +43,8 @@ class GetPopularAdapter(val onClickPopular: (Movie) -> Unit) :
 
         fun bind(item: Movie) {
 
-            val urlImages = ApiService.URL_IMAGES + item.poster_path
-            Glide.with(cardPopular).load(urlImages).into(imageMoviePopular)
+            val urlImagesPopular = ApiService.URL_IMAGES + item.poster_path
+            Glide.with(cardPopular).load(urlImagesPopular).into(imageMoviePopular)
             cardPopular.setOnClickListener {
                 Log.v("Pulso sobre Popular", item.id.toString())
                 onClickPopular(item)

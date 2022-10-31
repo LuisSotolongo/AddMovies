@@ -45,8 +45,8 @@ class GetTopRatedAdapter (val onClickTopRated: (Movie) -> Unit) :
 
         fun bind(item: Movie) {
 
-            val urlImages = ApiService.URL_IMAGES + item.poster_path
-            Glide.with(cardTopRated).load(urlImages).into(imageMovieTopRated)
+            val urlImagesTopRated = ApiService.URL_IMAGES + item.poster_path
+            Glide.with(cardTopRated).load(urlImagesTopRated).into(imageMovieTopRated)
             cardTopRated.setOnClickListener {
                 Log.v("Pulso sobre TOP RATED", item.id.toString())
                 onClickTopRated(item)

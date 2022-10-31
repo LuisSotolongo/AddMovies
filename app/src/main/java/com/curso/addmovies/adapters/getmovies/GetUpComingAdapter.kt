@@ -45,8 +45,8 @@ class GetUpComingAdapter(val onClickUpComing: (Movie) -> Unit) :
 
         fun bind(item: Movie) {
 
-            val urlImages = ApiService.URL_IMAGES + item.poster_path
-            Glide.with(cardUpComing).load(urlImages).into(imageMovieUpComing)
+            val urlImagesUpComing = ApiService.URL_IMAGES + item.poster_path
+            Glide.with(cardUpComing).load(urlImagesUpComing).into(imageMovieUpComing)
             cardUpComing.setOnClickListener {
                 Log.v("Pulso sobre UP Coming", item.id.toString())
                 onClickUpComing(item)
