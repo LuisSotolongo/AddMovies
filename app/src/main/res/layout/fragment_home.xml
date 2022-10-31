@@ -1,56 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/darkblue"
+    android:orientation="vertical"
     tools:context=".views.home.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
 
-    <TextView
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/loading_spinner_home"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:fontFamily="@font/roboto_bold"
-        android:text="Tendencias"
-        android:textColor="@color/darkyellow"
-        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:indeterminateTint="@color/purple_700"
+        android:indeterminateTintMode="src_atop"
+        android:visibility="gone" />
 
-        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/parent_recyclerview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.271" />
 
-    <LinearLayout
-        android:id="@+id/first"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-
-
-        <ProgressBar
-            android:id="@+id/loading_spinner_home"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:indeterminateTint="@color/purple_700"
-            android:indeterminateTintMode="src_atop"
-            android:visibility="gone" />
-
-        <LinearLayout
-            android:id="@+id/second"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="12dp"
-            android:labelFor="@+id/text"
-            android:orientation="horizontal">
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/moviesRecylcergettrending"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                tools:listitem="@layout/item_block_moviegettrending" />
-        </LinearLayout>
-
-
-    </LinearLayout>
-</FrameLayout>
+</RelativeLayout>

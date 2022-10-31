@@ -12,15 +12,15 @@ import com.curso.addmovies.R
 import com.curso.demo_retrofit.models.Movie
 import com.curso.demo_retrofit.remote.ApiService
 
-class GetTrendingAdapter(val onClickTrending:(Movie) -> Unit): RecyclerView.Adapter<GetTrendingAdapter.ViewHolder>() {
+class GetTrendingAdapter(val onClickTrending: (Movie) -> Unit) :
+    RecyclerView.Adapter<GetTrendingAdapter.ViewHolder>() {
 
     var dataMovieTrending = mutableListOf<Movie>()
 
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_block_moviegettrending, parent, false)
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_block_moviegettrending, parent, false)
         return ViewHolder(view)
     }
 
@@ -32,11 +32,12 @@ class GetTrendingAdapter(val onClickTrending:(Movie) -> Unit): RecyclerView.Adap
         return dataMovieTrending.size
     }
 
-    fun updateData(moviesData: List<Movie>){
+    fun updateData(moviesData: List<Movie>) {
         dataMovieTrending = moviesData.toMutableList()
         notifyDataSetChanged()
     }
-    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
+
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val imageMovieTrending = itemView.findViewById<ImageView>(R.id.imageTrending)
         val cardTrending = itemView.findViewById<CardView>(R.id.cardTrending)
@@ -47,7 +48,7 @@ class GetTrendingAdapter(val onClickTrending:(Movie) -> Unit): RecyclerView.Adap
             val urlImages = ApiService.URL_IMAGES + item.poster_path
             Glide.with(cardTrending).load(urlImages).into(imageMovieTrending)
             cardTrending.setOnClickListener {
-                Log.v("Pulso sobre", item.id.toString())
+                Log.v("Pulso sobre Trending", item.id.toString())
                 onClickTrending(item)
             }
         }

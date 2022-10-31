@@ -61,6 +61,9 @@
         <action
             android:id="@+id/action_containerFragment_to_detailsMovieFragment"
             app:destination="@id/detailsMovieFragment" />
+        <action
+            android:id="@+id/action_containerFragment_to_splashFragment2"
+            app:destination="@id/splashFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"

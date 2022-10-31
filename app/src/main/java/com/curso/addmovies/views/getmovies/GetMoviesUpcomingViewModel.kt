@@ -8,18 +8,19 @@ import com.curso.demo_retrofit.remote.ApiService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class GetMoviesViewModel: ViewModel() {
-    val getMoviesListTrending = MutableStateFlow(Movies())
+class GetMoviesUpcomingViewModel: ViewModel() {
+
+
+    val getMoviesListUpcoming = MutableStateFlow(Movies())
     val loading = MutableStateFlow(false)
 
-
-    fun getMoviesTrending() {
+    fun getMoviesUpcoming() {
         loading.value = true
         viewModelScope.launch {
-            val response = ApiService.api.getMoviesTrending()
+            val response = ApiService.api.getMoviesUpcoming()
             if (response.isSuccessful) {
-                getMoviesListTrending.value = response.body() ?: Movies()
-                Log.v("PELICULAS", "Todo fenomenal en la petición de generos ${getMoviesListTrending.value}")
+                getMoviesListUpcoming.value = response.body() ?: Movies()
+                Log.v("PELICULAS", "Todo fenomenal en la petición de generos ${getMoviesListUpcoming.value}")
             } else {
                 Log.v("Genres", "Error en la petición de generos ${response.toString()}")
             }

@@ -12,15 +12,15 @@ import com.curso.addmovies.R
 import com.curso.demo_retrofit.models.Movie
 import com.curso.demo_retrofit.remote.ApiService
 
-class GetTopRatedAdapter (val onClickTopRated: (Movie) -> Unit) :
-    RecyclerView.Adapter<GetTopRatedAdapter.ViewHolder>() {
+class GetUpComingAdapter(val onClickUpComing: (Movie) -> Unit) :
+    RecyclerView.Adapter<GetUpComingAdapter.ViewHolder>() {
 
     var dataMovieUpComing = mutableListOf<Movie>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_block_movietoprated, parent, false)
+            .inflate(R.layout.item_block_moviegetupcoming, parent, false)
         return ViewHolder(view)
     }
 
@@ -39,17 +39,17 @@ class GetTopRatedAdapter (val onClickTopRated: (Movie) -> Unit) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val imageMovieTopRated = itemView.findViewById<ImageView>(R.id.imageTopRated)
-        val cardTopRated = itemView.findViewById<CardView>(R.id.cardTopRated)
+        val imageMovieUpComing = itemView.findViewById<ImageView>(R.id.imageUpcoming)
+        val cardUpComing = itemView.findViewById<CardView>(R.id.cardUpComing)
 
 
         fun bind(item: Movie) {
 
             val urlImages = ApiService.URL_IMAGES + item.poster_path
-            Glide.with(cardTopRated).load(urlImages).into(imageMovieTopRated)
-            cardTopRated.setOnClickListener {
-                Log.v("Pulso sobre TOP RATED", item.id.toString())
-                onClickTopRated(item)
+            Glide.with(cardUpComing).load(urlImages).into(imageMovieUpComing)
+            cardUpComing.setOnClickListener {
+                Log.v("Pulso sobre UP Coming", item.id.toString())
+                onClickUpComing(item)
             }
         }
     }
