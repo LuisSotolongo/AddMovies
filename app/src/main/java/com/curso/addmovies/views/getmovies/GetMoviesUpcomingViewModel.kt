@@ -20,9 +20,9 @@ class GetMoviesUpcomingViewModel: ViewModel() {
             val response = ApiService.api.getMoviesUpcoming()
             if (response.isSuccessful) {
                 getMoviesListUpcoming.value = response.body() ?: Movies()
-                Log.v("PELICULAS", "Todo fenomenal en la petición de generos ${getMoviesListUpcoming.value}")
+                Log.v("PELICULAS Upcoming", "Todo fenomenal en la petición de generos ${getMoviesListUpcoming.value}")
             } else {
-                Log.v("Genres", "Error en la petición de generos ${response.toString()}")
+                Log.v("Upcoming", "Error en la petición de generos ${response.toString()}")
             }
             loading.value = false
         }

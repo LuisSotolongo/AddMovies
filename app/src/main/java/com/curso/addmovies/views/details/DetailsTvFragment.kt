@@ -1,4 +1,4 @@
-package com.curso.addmovies.views.series
+package com.curso.addmovies.views.details
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,18 +8,15 @@ import android.view.ViewGroup
 import com.curso.addmovies.R
 
 
-class SeriesFragment : Fragment() {
-
+class DetailsTvFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_series, container, false)
+        return inflater.inflate(R.layout.fragment_details_tv, container, false)
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-    }
+
 }

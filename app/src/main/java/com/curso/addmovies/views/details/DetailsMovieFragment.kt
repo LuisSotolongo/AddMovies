@@ -2,22 +2,27 @@ package com.curso.addmovies.views.details
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.curso.addmovies.DataHolder.idMovie
+import com.curso.addmovies.DataHolder
 import com.curso.addmovies.R
+import com.curso.addmovies.adapters.character.GetCharacterAdapter
+import com.curso.addmovies.views.characters.GetCharacterViewModel
 import com.curso.demo_retrofit.models.Movie
 import com.curso.demo_retrofit.remote.ApiService
 import com.google.android.material.appbar.MaterialToolbar
@@ -26,7 +31,10 @@ import kotlinx.coroutines.launch
 
 class DetailsMovieFragment : Fragment() {
     private val viewModel: DetailMovieViewModel by activityViewModels()
-    private val detailList = listOf<Movie>()
+    private val viewModelCast: GetCharacterViewModel by activityViewModels()
+
+    private lateinit var adapterCast: GetCharacterAdapter
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -69,12 +77,40 @@ class DetailsMovieFragment : Fragment() {
 
                     }
                 }
-
+             launch {
+                 viewModelCast.movieCast.collect{
+                      adapterCast.updateData(it.cast)
+                 }
+             }
 
             }
 
         }
-        viewModel.getMovie(idMovie.toString())
+
+        adapterCast = GetCharacterAdapter {
+
+            DataHolder.idMovie = it.id!!
+            Log.v("ID Castigador", "${it.id}")
+            findNavController().navigate(R.id.action_detailsMovieFragment_to_detailCharacterFragment)
+
+        }
+
+
+
+        val moviesRecyclerCast = view.findViewById<RecyclerView>(R.id.cast_recyclerview)
+        moviesRecyclerCast.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        moviesRecyclerCast.adapter = adapterCast
+
+
+
+
+val idMovie = DataHolder.idMovie
+
+
+       viewModel.getMovie(idMovie.toString())
+        viewModelCast.getCast(idMovie.toString())
+
+
 
     }
         fun pintarDatos(datospeliculas: List<Movie>) {

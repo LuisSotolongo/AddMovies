@@ -19,9 +19,9 @@ class GetMoviesPopularViewModel: ViewModel() {
             val response = ApiService.api.getMoviesPopular()
             if (response.isSuccessful) {
                 getMoviesListPopular.value = response.body() ?: Movies()
-                Log.v("PELICULAS", "Todo fenomenal en la petición de generos ${getMoviesListPopular.value}")
+                Log.v("PELICULAS Popular", "Todo fenomenal en la petición de generos ${getMoviesListPopular.value}")
             } else {
-                Log.v("Genres", "Error en la petición de generos ${response.toString()}")
+                Log.v("Popular", "Error en la petición de generos ${response.toString()}")
             }
             loading.value = false
         }

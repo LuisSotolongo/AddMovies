@@ -19,9 +19,9 @@ class GetMoviesTrendingViewModel: ViewModel() {
             val response = ApiService.api.getMoviesTrending()
             if (response.isSuccessful) {
                 getMoviesListTrending.value = response.body() ?: Movies()
-                Log.v("PELICULAS", "Todo fenomenal en la petición de generos ${getMoviesListTrending.value}")
+                Log.v("PELICULAS Trending", "Todo fenomenal en la petición de generos ${getMoviesListTrending.value}")
             } else {
-                Log.v("Genres", "Error en la petición de generos ${response.toString()}")
+                Log.v("Trending", "Error en la petición de generos ${response.toString()}")
             }
             loading.value = false
         }

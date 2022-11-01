@@ -4,7 +4,7 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.curso.demo_retrofit.models.Movie
-import com.curso.demo_retrofit.models.Movies
+
 import com.curso.demo_retrofit.remote.ApiService
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
@@ -32,14 +32,12 @@ val loading = MutableStateFlow(false)
                     "Todo fenomenal en la petición de movies detail ${movieDetail.value}"
                 )
             } else {
-                Log.v("Genres", "Error en la petición de generos ${response.toString()}")
+                Log.v("Detail Movie ViewModel", "Error en la petición de generos ${response.toString()}")
             }
             loading.value = false
         }
 
-        val ldl = listOf<Movie>(
-            Movie()
-        )
+
 
 
         Log.v("MoviesMutable","$movieDetail" )

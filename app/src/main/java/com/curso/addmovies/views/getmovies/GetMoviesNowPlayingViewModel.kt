@@ -15,12 +15,12 @@ class GetMoviesNowPlayingViewModel: ViewModel() {
     fun getMoviesNowPlaying() {
         loading.value = true
         viewModelScope.launch {
-            val response = ApiService.api.getMoviesPopular()
+            val response = ApiService.api.getMoviesNowPlaying()
             if (response.isSuccessful) {
                 getMoviesListNowPlaying.value = response.body() ?: Movies()
-                Log.v("PELICULAS", "Todo fenomenal en la petición de generos ${getMoviesListNowPlaying.value}")
+                Log.v("PELICULAS NowPlaying", "Todo fenomenal en la petición de generos ${getMoviesListNowPlaying.value}")
             } else {
-                Log.v("Genres", "Error en la petición de generos ${response.toString()}")
+                Log.v("NowPlaying", "Error en la petición de generos ${response.toString()}")
             }
             loading.value = false
         }

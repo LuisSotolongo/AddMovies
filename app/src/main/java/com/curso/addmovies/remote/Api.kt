@@ -1,5 +1,9 @@
 package com.curso.demo_retrofit.remote
 
+import com.curso.addmovies.models.Actor
+import com.curso.addmovies.models.Cast
+import com.curso.addmovies.models.Characters
+import com.curso.addmovies.models.Tvs
 import com.curso.demo_retrofit.models.Genres
 import com.curso.demo_retrofit.models.Movie
 import com.curso.demo_retrofit.models.Movies
@@ -80,5 +84,41 @@ interface Api {
         @Path("movie_id") id_movie: String,
         @Query("api_key") apikey: String = ApiService.api_key,
         @Query("language") language: String = ApiService.language,
-    ): Response<Movies>
+    ): Response<Characters>
+
+
+
+    @GET("tv/popular?")
+    suspend fun getTvsPopular(
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<Tvs>
+
+    @GET("tv/airing_today?")
+    suspend fun getTvsAiringToday(
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<Tvs>
+
+    @GET("tv/on_the_air?")
+    suspend fun getTvsOnAir(
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<Tvs>
+
+
+    @GET("tv/top_rated?")
+    suspend fun getTvsTopRated(
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<Tvs>
+
+    @GET("person/{person_id}")
+    suspend fun getActorDetails(
+        @Path("person_id") personId: String,
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<Actor>
+
+
 }

@@ -13,4 +13,6 @@ data class Cast(
     val original_name: String? = null,
     val popularity: Double? = null,
     val profile_path: String? = null
-)
+){
+
+}

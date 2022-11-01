@@ -119,6 +119,7 @@ class HomeFragment : Fragment() {
         }
         adapterTopRated = GetTopRatedAdapter {
             DataHolder.idMovie = it.id!!
+
             Log.v("ID TOP RATED", "${it.id}")
             findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
 
@@ -127,23 +128,23 @@ class HomeFragment : Fragment() {
 
 
 
-
+//popular
         val moviesRecyclerPopular = view.findViewById<RecyclerView>(R.id.popular_recyclerview)
         moviesRecyclerPopular.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         moviesRecyclerPopular.adapter = adapterPopular
-
+//
         val moviesRecyclerTrending = view.findViewById<RecyclerView>(R.id.trending_recyclerview)
         moviesRecyclerTrending.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         moviesRecyclerTrending.adapter = adapterTrending
-
+//en cartelera
         val moviesRecyclerNowPlaying = view.findViewById<RecyclerView>(R.id.nowplaying_recyclerview)
         moviesRecyclerNowPlaying.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         moviesRecyclerNowPlaying.adapter = adapterNowPlaying
-
+//mejor valoradas
         val moviesRecyclerTopRated = view.findViewById<RecyclerView>(R.id.toprated_recyclerview)
         moviesRecyclerTopRated.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         moviesRecyclerTopRated.adapter = adapterTopRated
-
+//proximamente
         val moviesRecyclerUpComming = view.findViewById<RecyclerView>(R.id.upcomming_recyclerview)
         moviesRecyclerUpComming.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         moviesRecyclerUpComming.adapter = adapterUpComing

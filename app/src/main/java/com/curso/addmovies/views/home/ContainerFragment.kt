@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.curso.addmovies.R
 import com.curso.addmovies.views.movies.MoviesFragment
-import com.curso.addmovies.views.series.SeriesFragment
+import com.curso.addmovies.views.tv.TvFragment
 import com.curso.addmovies.views.users.UsersFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.firestore.ktx.firestore
@@ -50,8 +50,8 @@ class ContainerFragment : Fragment() {
                     goToFragment(MoviesFragment())
                     true
                 }
-                R.id.action_series -> {
-                    goToFragment(SeriesFragment())
+                R.id.action_tv -> {
+                    goToFragment(TvFragment())
                     true
                 }
                 R.id.action_users -> {

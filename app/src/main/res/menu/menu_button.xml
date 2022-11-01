@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_baseline_movie_24"
         android:title="Movies" />
     <item
-        android:id="@+id/action_series"
+        android:id="@+id/action_tv"
         android:icon="@drawable/ic_outline_movie_24"
-        android:title="Series" />
+        android:title="Tv" />
     <item
         android:id="@+id/action_users"
         android:icon="@drawable/ic_baseline_recent_actors_24"

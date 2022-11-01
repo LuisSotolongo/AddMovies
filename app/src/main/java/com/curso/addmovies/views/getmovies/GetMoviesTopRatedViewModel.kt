@@ -19,9 +19,9 @@ class GetMoviesTopRatedViewModel: ViewModel() {
             val response = ApiService.api.getMoviesTopRated()
             if (response.isSuccessful) {
                 getMoviesListTopRated.value = response.body() ?: Movies()
-                Log.v("PELICULAS", "Todo fenomenal en la petición de generos ${getMoviesListTopRated.value}")
+                Log.v("PELICULAS TopRated", "Todo fenomenal en la petición de generos ${getMoviesListTopRated.value}")
             } else {
-                Log.v("Genres", "Error en la petición de generos ${response.toString()}")
+                Log.v("TopRated", "Error en la petición de generos ${response.toString()}")
             }
             loading.value = false
         }
