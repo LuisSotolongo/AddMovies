@@ -9,14 +9,7 @@
     tools:context=".views.home.HomeFragment">
 
 
-    <ProgressBar
-        android:id="@+id/loading_spinner_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:indeterminateTint="@color/purple_700"
-        android:indeterminateTintMode="src_atop"
-        android:visibility="gone" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -25,29 +18,37 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:orientation="horizontal"
-    android:id="@+id/popular">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/popular_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.271" />
-</LinearLayout>
+    <!--   <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="horizontal"
+           android:id="@+id/search">
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchMovies"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0" />
+       </LinearLayout>-->
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pelicula del día"
+                android:textColor="@color/darkyellow"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"/>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@+id/popular"
-        android:id="@+id/trending">
+        android:layout_below="@+id/search"
+        android:id="@+id/trending"
+        android:layout_marginTop="10dp">
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/trending_recyclerview"
             android:layout_width="match_parent"
@@ -59,12 +60,20 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.271" />
     </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En Cartelera"
+                android:textColor="@color/darkyellow"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:orientation="horizontal"
         android:layout_below="@+id/trending"
-        android:id="@+id/nowplaying">
+        android:id="@+id/nowplaying"
+        android:layout_marginTop="10dp">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/nowplaying_recyclerview"
             android:layout_width="match_parent"
@@ -76,35 +85,32 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.271" />
     </LinearLayout>
+            <ProgressBar
+                android:id="@+id/loading_spinner_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminateTint="@color/purple_700"
+                android:indeterminateTintMode="src_atop"
+                android:visibility="gone" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:orientation="horizontal"
-        android:layout_below="@+id/nowplaying"
-        android:id="@+id/toprated">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/toprated_recyclerview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.271" />
-    </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En Televisión"
+                android:textColor="@color/darkyellow"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:orientation="horizontal"
-                android:layout_below="@+id/toprated"
-                android:id="@+id/upcoming">
+                android:layout_below="@+id/tvonair"
+                android:id="@+id/tvairingtoday"
+                android:layout_marginTop="10dp">
 
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/upcomming_recyclerview"
+                    android:id="@+id/tvairingtoday_recyclerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -114,6 +120,9 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.271" />
             </LinearLayout>
+
+
+
         </LinearLayout>
 </ScrollView>
 </RelativeLayout>

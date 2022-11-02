@@ -1,9 +1,6 @@
 package com.curso.demo_retrofit.remote
 
-import com.curso.addmovies.models.Actor
-import com.curso.addmovies.models.Cast
-import com.curso.addmovies.models.Characters
-import com.curso.addmovies.models.Tvs
+import com.curso.addmovies.models.*
 import com.curso.demo_retrofit.models.Genres
 import com.curso.demo_retrofit.models.Movie
 import com.curso.demo_retrofit.models.Movies
@@ -72,9 +69,9 @@ interface Api {
         @Query("language") language: String = ApiService.language,
     ): Response<Movies>
 
-    @GET("/search/movie?")
-    suspend fun getMovieSearch(
-        @Path("movie_id") id_movie: String,
+    @GET("search/multi")
+    suspend fun getDbSearch(
+        @Path("query") querysearch: String,
         @Query("api_key") apikey: String = ApiService.api_key,
         @Query("language") language: String = ApiService.language,
     ): Response<Movies>
@@ -86,6 +83,12 @@ interface Api {
         @Query("language") language: String = ApiService.language,
     ): Response<Characters>
 
+    @GET("tv/{tv_id}/credits?")
+    suspend fun getTvCredits(
+        @Path("tv_id") id_tv: String,
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<Characters>
 
 
     @GET("tv/popular?")
@@ -117,8 +120,14 @@ interface Api {
     suspend fun getActorDetails(
         @Path("person_id") personId: String,
         @Query("api_key") apikey: String = ApiService.api_key,
-        @Query("language") language: String = ApiService.language,
+        @Query("language") language: String = ApiService.language1,
     ): Response<Actor>
 
+    @GET("tv/{tv_id}")
+    suspend fun getTvDetails(
+        @Path("tv_id") tvId : String,
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<Tv>
 
 }

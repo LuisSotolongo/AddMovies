@@ -7,5 +7,6 @@ object DataHolder {
     var idGenres : Int = 0
     var idMovie : Int = 0
     var idTv : Int = 0
+    var name: String = ""
 
 }

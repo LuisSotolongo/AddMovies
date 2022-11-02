@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -45,14 +46,14 @@ class GetCharacterAdapter(val onClickCast: (Cast) -> Unit) :
 
         val imageCast = itemView.findViewById<ImageView>(R.id.imageCredits)
         val cardCast = itemView.findViewById<CardView>(R.id.cardCredits)
-
+ val name = itemView.findViewById<TextView>(R.id.NameActor)
 
         fun bind(item: Cast) {
-
+          name.text = item.name
             val urlImagesCast = ApiService.URL_IMAGES + item.profile_path
 
             Log.v("urlImagesCast", "$urlImagesCast")
-            Glide.with(cardCast).load(urlImagesCast).transform(CircleCrop()).into(imageCast)
+            Glide.with(cardCast).load(urlImagesCast).into(imageCast)
             cardCast.setOnClickListener {
                 Log.v("Pulso sobre CAST", item.id.toString())
                 onClickCast(item)

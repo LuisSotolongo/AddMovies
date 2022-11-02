@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -41,11 +42,12 @@ class GetTrendingAdapter(val onClickTrending: (Movie) -> Unit) :
 
         val imageMovieTrending = itemView.findViewById<ImageView>(R.id.imageTrending)
         val cardTrending = itemView.findViewById<CardView>(R.id.cardTrending)
+        val titleMovieTrending = itemView.findViewById<TextView>(R.id.titleMovieTrending)
 
 
         fun bind(item: Movie) {
-
-            val urlImagesTrending = ApiService.URL_IMAGES + item.poster_path
+            titleMovieTrending.text = item.title
+            val urlImagesTrending = ApiService.URL_IMAGES + item.backdrop_path
             Glide.with(cardTrending).load(urlImagesTrending).into(imageMovieTrending)
             cardTrending.setOnClickListener {
                 Log.v("Pulso sobre Trending", item.id.toString())

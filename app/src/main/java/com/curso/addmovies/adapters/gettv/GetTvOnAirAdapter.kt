@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -41,10 +42,10 @@ class GetTvOnAirAdapter (val onClickOnAir: (Tv) -> Unit) :
 
         val imageTvOnAir = itemView.findViewById<ImageView>(R.id.imageTvOnAir)
         val cardTvOnAir = itemView.findViewById<CardView>(R.id.cardtvOnAir)
-
+        val title = itemView.findViewById<TextView>(R.id.titleTvOnAir)
 
         fun bind(item: Tv) {
-
+            title.text = item.name
             val urlImagesTvOnAir = ApiService.URL_IMAGES + item.poster_path
             Glide.with(cardTvOnAir).load(urlImagesTvOnAir).into(imageTvOnAir)
             cardTvOnAir.setOnClickListener {

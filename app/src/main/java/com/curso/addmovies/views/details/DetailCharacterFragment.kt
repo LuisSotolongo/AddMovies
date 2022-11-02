@@ -40,12 +40,12 @@ class DetailCharacterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val toolbar = view.findViewById<MaterialToolbar>(R.id.toolbarDetailCharacter)
+        val toolbarCharacter = view.findViewById<MaterialToolbar>(R.id.toolbarDetailCharacter)
 
         val navHostFragment = NavHostFragment.findNavController(this);
-        NavigationUI.setupWithNavController(toolbar, navHostFragment)
+        NavigationUI.setupWithNavController(toolbarCharacter, navHostFragment)
 
-        toolbar.title = "Actor Detail"
+        toolbarCharacter.title = "Actor Detail"
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -82,7 +82,7 @@ class DetailCharacterFragment : Fragment() {
         val birthayActor = view?.findViewById<TextView>(R.id.birthday)
         val biographyActor = view?.findViewById<TextView>(R.id.biography)
         val popularityActor = view?.findViewById<TextView>(R.id.popularity)
-        val deathdayActor = view?.findViewById<TextView>(R.id.deathday)
+
         val cardActor = view?.findViewById<CardView>(R.id.cardDetailCharacter)
 
                for (i in datosActor){
@@ -99,9 +99,7 @@ class DetailCharacterFragment : Fragment() {
                    if (popularityActor != null) {
                        popularityActor.text = i.popularity.toString()
                    }
-                   if (deathdayActor != null) {
-                       deathdayActor.text = i.deathday
-                   }
+
 
                    val urlImages = ApiService.URL_IMAGES + i.profile_path
                    if (cardActor != null) {

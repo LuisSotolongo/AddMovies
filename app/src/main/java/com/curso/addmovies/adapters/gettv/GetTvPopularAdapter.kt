@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -41,10 +42,10 @@ class GetTvPopularAdapter(val onClickTvPopular: (Tv) -> Unit) :
 
         val imageTvPopular = itemView.findViewById<ImageView>(R.id.imageTvPopular)
         val cardTvPopular = itemView.findViewById<CardView>(R.id.cardtvPopular)
-
+        val title = itemView.findViewById<TextView>(R.id.titleTvPopular)
 
         fun bind(item: Tv) {
-
+            title.text = item.name
             val urlImagesTvPopular = ApiService.URL_IMAGES + item.poster_path
             Glide.with(cardTvPopular).load(urlImagesTvPopular).into(imageTvPopular)
             cardTvPopular.setOnClickListener {

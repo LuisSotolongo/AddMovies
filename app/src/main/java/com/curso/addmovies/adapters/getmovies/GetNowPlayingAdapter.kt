@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -46,10 +47,10 @@ class GetNowPlayingAdapter(val onClickNowPlaying: (Movie) -> Unit) :
 
         val imageMovieNowplaying = itemView.findViewById<ImageView>(R.id.imageNowplaying)
         val cardNowPlaying = itemView.findViewById<CardView>(R.id.cardNowPlaying)
-
+        val title = itemView.findViewById<TextView>(R.id.titleMovieNowplaying)
 
         fun bind(item: Movie) {
-
+            title.text = item.title
             val urlImagesNowPlaying = ApiService.URL_IMAGES + item.poster_path
             Glide.with(cardNowPlaying).load(urlImagesNowPlaying).into(imageMovieNowplaying)
             cardNowPlaying.setOnClickListener {

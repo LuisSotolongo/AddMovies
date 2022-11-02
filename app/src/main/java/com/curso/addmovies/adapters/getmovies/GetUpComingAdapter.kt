@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -41,10 +42,10 @@ class GetUpComingAdapter(val onClickUpComing: (Movie) -> Unit) :
 
         val imageMovieUpComing = itemView.findViewById<ImageView>(R.id.imageUpcoming)
         val cardUpComing = itemView.findViewById<CardView>(R.id.cardUpComing)
-
+        val title = itemView.findViewById<TextView>(R.id.titleMovieUpComing)
 
         fun bind(item: Movie) {
-
+            title.text = item.title
             val urlImagesUpComing = ApiService.URL_IMAGES + item.poster_path
             Glide.with(cardUpComing).load(urlImagesUpComing).into(imageMovieUpComing)
             cardUpComing.setOnClickListener {

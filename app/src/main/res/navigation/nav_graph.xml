@@ -70,6 +70,9 @@
         <action
             android:id="@+id/action_containerFragment_to_detailCharacterFragment"
             app:destination="@id/detailCharacterFragment" />
+        <action
+            android:id="@+id/action_containerFragment_to_movieSearchFragment"
+            app:destination="@id/movieSearchFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
@@ -90,7 +93,11 @@
         android:id="@+id/usersFragment"
         android:name="com.curso.addmovies.views.users.UsersFragment"
         android:label="fragment_users"
-        tools:layout="@layout/fragment_users" />
+        tools:layout="@layout/fragment_users" >
+        <action
+            android:id="@+id/action_usersFragment_to_detailsTvFragment"
+            app:destination="@id/detailsTvFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailsMovieFragment"
         android:name="com.curso.addmovies.views.details.DetailsMovieFragment"
@@ -99,15 +106,43 @@
         <action
             android:id="@+id/action_detailsMovieFragment_to_detailCharacterFragment"
             app:destination="@id/detailCharacterFragment" />
+        <action
+            android:id="@+id/action_detailsMovieFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
     </fragment>
     <fragment
         android:id="@+id/detailsTvFragment"
         android:name="com.curso.addmovies.views.details.DetailsTvFragment"
         android:label="fragment_details_tv"
-        tools:layout="@layout/fragment_details_tv" />
+        tools:layout="@layout/fragment_details_tv" >
+        <action
+            android:id="@+id/action_detailsTvFragment_to_detailCharacterFragment"
+            app:destination="@id/detailCharacterFragment" />
+        <action
+            android:id="@+id/action_detailsTvFragment_to_seriesFragment"
+            app:destination="@id/seriesFragment" />
+    </fragment>
     <fragment
         android:id="@+id/detailCharacterFragment"
         android:name="com.curso.addmovies.views.details.DetailCharacterFragment"
         android:label="fragment_detail_character"
-        tools:layout="@layout/fragment_detail_character" />
+        tools:layout="@layout/fragment_detail_character" >
+        <action
+            android:id="@+id/action_detailCharacterFragment_to_moviesFragment"
+            app:destination="@id/moviesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/movieSearchFragment"
+        android:name="com.curso.addmovies.views.search.MovieSearchFragment"
+        android:label="MovieSearchFragment" >
+        <action
+            android:id="@+id/action_movieSearchFragment_to_detailCharacterFragment"
+            app:destination="@id/detailCharacterFragment" />
+        <action
+            android:id="@+id/action_movieSearchFragment_to_detailsMovieFragment"
+            app:destination="@id/detailsMovieFragment" />
+        <action
+            android:id="@+id/action_movieSearchFragment_to_detailsTvFragment"
+            app:destination="@id/detailsTvFragment" />
+    </fragment>
 </navigation>

@@ -8,7 +8,7 @@
         android:title="Home" />
     <item
         android:id="@+id/action_movies"
-        android:icon="@drawable/ic_baseline_movie_24"
+        android:icon="@drawable/ic_outline_movie_24"
         android:title="Movies" />
     <item
         android:id="@+id/action_tv"

@@ -122,10 +122,10 @@ val idMovie = DataHolder.idMovie
                 val card = view?.findViewById<CardView>(R.id.cardDetailMovie)
                 val backgroundImage = view?.findViewById<ImageView>(R.id.backgroundImage)
                 val sinopsis = view?.findViewById<TextView>(R.id.overview)
-                val popularidad = view?.findViewById<TextView>(R.id.popularidad)
+               // val popularidad = view?.findViewById<TextView>(R.id.popularidad)
                 val releaseDate = view?.findViewById<TextView>(R.id.releaseDate)
-                val mediaVoto = view?.findViewById<TextView>(R.id.mediaVoto)
-                val votos = view?.findViewById<TextView>(R.id.votos)
+                //val mediaVoto = view?.findViewById<TextView>(R.id.mediaVoto)
+                //val votos = view?.findViewById<TextView>(R.id.votos)
 
 
                 Log.v("TITULO", "${i.title}")
@@ -136,18 +136,18 @@ val idMovie = DataHolder.idMovie
                 if (sinopsis != null) {
                     sinopsis.text = "Sinopsis\n ${i.overview}"
                 }
-                if (popularidad != null) {
+               /* if (popularidad != null) {
                     popularidad.text = " Popularidad:\n ${i.popularity.toString()}"
-                }
+                }*/
                 if (releaseDate != null) {
                     releaseDate.text = "Fecha Estreno:\n ${i.release_date}"
                 }
-                if (mediaVoto != null) {
+               /* if (mediaVoto != null) {
                     mediaVoto.text = "Media Votos:\n ${i.vote_average.toString()}"
-                }
-                if (votos != null) {
+                }*/
+                /*if (votos != null) {
                     votos.text = "Votos:\n ${i.vote_count.toString()}"
-                }
+                }*/
 
                 val urlImages = ApiService.URL_IMAGES + i.poster_path
                 if (card != null) {

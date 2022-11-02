@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -41,10 +42,10 @@ class GetTvTopRatedAdapter (val onClickTopRated: (Tv) -> Unit) :
 
         val imageTVTopRated = itemView.findViewById<ImageView>(R.id.imageTvTopRated)
         val cardTVTopRated = itemView.findViewById<CardView>(R.id.cardtvTopRated)
-
+        val title = itemView.findViewById<TextView>(R.id.titleTvTopRated)
 
         fun bind(item: Tv) {
-
+            title.text = item.name
             val urlImagesTVTopRated = ApiService.URL_IMAGES + item.poster_path
             Glide.with(cardTVTopRated).load(urlImagesTVTopRated).into(imageTVTopRated)
             cardTVTopRated.setOnClickListener {

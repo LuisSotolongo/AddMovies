@@ -87,26 +87,26 @@ class TvFragment : Fragment() {
 
             DataHolder.idTv = it.id!!
             Log.v("ID TV AIRING TODAY", "${it.id}")
-            findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
+            findNavController().navigate(R.id.action_containerFragment_to_detailsTvFragment)
 
         }
         adapterTvPopular = GetTvPopularAdapter {
             DataHolder.idTv = it.id!!
             Log.v("ID TV POPULAR", "${it.id}")
-            findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
+            findNavController().navigate(R.id.action_containerFragment_to_detailsTvFragment)
 
         }
 
         adapterTvOnAir = GetTvOnAirAdapter {
             DataHolder.idTv = it.id!!
             Log.v("ID TV ON AIR", "${it.id}")
-            findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
+            findNavController().navigate(R.id.action_containerFragment_to_detailsTvFragment)
 
         }
         adapterTvTopRated = GetTvTopRatedAdapter {
             DataHolder.idTv = it.id!!
             Log.v("ID TV TOP RATED", "${it.id}")
-            findNavController().navigate(R.id.action_containerFragment_to_detailsMovieFragment)
+            findNavController().navigate(R.id.action_containerFragment_to_detailsTvFragment)
 
         }
 

@@ -15,7 +15,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbarDetailMovie"
+        android:id="@+id/toolbarDetailTv"
         style="@style/Toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,14 +31,15 @@
 
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/cardDetailMovie"
+            android:id="@+id/cardDetailTv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="8dp"
-            app:cardElevation="10dp">
+            app:cardElevation="10dp"
+            android:backgroundTint="@color/darkblue">
 
             <ImageView
-                android:id="@+id/detailImageMovie"
+                android:id="@+id/detailImageTv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="90dp"
@@ -51,14 +52,26 @@
                 android:orientation="vertical">
 
                 <!-- Media -->
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
 
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 <ImageView
-                    android:id="@+id/backgroundImage"
+                    android:id="@+id/backgroundImageTv"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:contentDescription="imagen pelicula"
                     android:scaleType="centerCrop" />
-
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/floating_action_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="16dp"
+                    app:iconTint="@color/white"
+                    android:elevation="16dp"
+                    app:srcCompat="@drawable/ic_baseline_star_border_24" />
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -67,7 +80,7 @@
 
                     <!-- Title, secondary and supporting text -->
                     <TextView
-                        android:id="@+id/titleDetailMovie"
+                        android:id="@+id/titleDetailTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
@@ -76,7 +89,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/overview"
+                        android:id="@+id/overviewTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
@@ -87,7 +100,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/popularidad"
+                        android:id="@+id/popularidadTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -96,7 +109,7 @@
                         android:textColor="?android:attr/textColorSecondary" />
 
                     <TextView
-                        android:id="@+id/releaseDate"
+                        android:id="@+id/releaseDateTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -105,7 +118,7 @@
                         android:textColor="?android:attr/textColorSecondary" />
 
                     <TextView
-                        android:id="@+id/mediaVoto"
+                        android:id="@+id/mediaVotoTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -114,7 +127,7 @@
                         android:textColor="?android:attr/textColorSecondary" />
 
                     <TextView
-                        android:id="@+id/votos"
+                        android:id="@+id/votosTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="16dp"
@@ -128,16 +141,24 @@
 
         </com.google.android.material.card.MaterialCardView>
     </LinearLayout>
-        <LinearLayout
+    <LinearLayout
+        android:id="@+id/cast"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+
+        android:orientation="horizontal">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/castTv_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/detailCharacters_recyclerview"/>
-
-        </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.271" />
+    </LinearLayout>
 </LinearLayout>
 
     </ScrollView>
