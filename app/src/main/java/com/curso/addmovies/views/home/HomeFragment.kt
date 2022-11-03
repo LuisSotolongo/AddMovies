@@ -130,7 +130,7 @@ class HomeFragment : Fragment() {
         moviesRecyclerAiringToday.adapter = adapterTvAiringToday
 
 
-        viewModelNowPaying.getMoviesNowPlaying()
+      viewModelNowPaying.getMoviesNowPlaying()
         viewModelTvAiringToday.getTvsAiringToday()
         viewModelTrending.getMoviesTrending()
 

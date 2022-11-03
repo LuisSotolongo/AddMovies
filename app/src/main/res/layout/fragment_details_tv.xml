@@ -6,14 +6,6 @@
     android:layout_height="match_parent"
     android:background="@color/darkblue"
     tools:context=".views.details.DetailsTvFragment">
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbarDetailTv"
         style="@style/Toolbar"
@@ -22,11 +14,20 @@
         android:background="@color/black"
         app:popupTheme="@style/Theme.AppCompat.Light"
         app:theme="@style/Toolbar" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarDetailTv">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp"
+
         android:orientation="vertical">
 
 
@@ -38,13 +39,7 @@
             app:cardElevation="10dp"
             android:backgroundTint="@color/darkblue">
 
-            <ImageView
-                android:id="@+id/detailImageTv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="90dp"
-                android:layout_marginBottom="0dp"
-                android:alpha="0.3" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -68,23 +63,54 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
                     android:layout_margin="16dp"
-                    app:iconTint="@color/white"
+                    app:tint="@color/darkyellow"
+
                     android:elevation="16dp"
-                    app:srcCompat="@drawable/ic_baseline_star_border_24" />
+                    android:backgroundTint="@color/lightblue"
+
+                    app:srcCompat="@drawable/ic_twotone_star_56"
+                    />
+                    <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floating_action_play"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|end"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:tint="@color/darkyellow"
+                        android:scaleType="center"
+                        android:elevation="16dp"
+                        android:backgroundTint="@color/lightblue"
+                        app:srcCompat="@drawable/ic_twotone_play_arrow_24"
+                        />
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:id="@+id/detailImageTv"
+                    android:layout_width="160dp"
+                    android:layout_height="300dp"
+
+                   />
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <!-- Title, secondary and supporting text -->
+
                     <TextView
                         android:id="@+id/titleDetailTv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/roboto_bold"
-                        android:text="titulo"
+
+                        android:textColor="@color/white"
                         android:textAppearance="?attr/textAppearanceHeadline6"
                         android:textStyle="bold" />
 
@@ -94,9 +120,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:fontFamily="@font/roboto_medium"
-                        android:text="sinopsis"
+
                         android:textAppearance="?attr/textAppearanceBody2"
-                        android:textColor="?android:attr/textColorSecondary"
+                        android:textColor="@color/darkyellow"
                         android:textStyle="bold" />
 
                     <TextView
@@ -135,8 +161,8 @@
                         android:textAppearance="?attr/textAppearanceBody2"
                         android:textColor="?android:attr/textColorSecondary" />
                 </LinearLayout>
-
-
+            </androidx.core.widget.NestedScrollView>
+            </LinearLayout>
             </LinearLayout>
 
         </com.google.android.material.card.MaterialCardView>

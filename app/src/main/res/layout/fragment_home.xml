@@ -40,6 +40,7 @@
                 android:text="Pelicula del día"
                 android:textColor="@color/darkyellow"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/roboto_bold"/>
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,6 +65,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="En Cartelera"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/darkyellow"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto_bold"/>
@@ -98,6 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="En Televisión"
+                android:layout_marginTop="10dp"
                 android:textColor="@color/darkyellow"
                 android:layout_marginStart="10dp"
                 android:fontFamily="@font/roboto_bold"/>

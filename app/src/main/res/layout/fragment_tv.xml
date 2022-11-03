@@ -25,6 +25,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Popular"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/darkyellow" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -42,7 +50,14 @@
                     app:layout_constraintVertical_bias="0.271" />
             </LinearLayout>
 
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Mejor Valoradas"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/darkyellow" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -60,7 +75,14 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.271" />
             </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="En emisión"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/darkyellow" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
@@ -79,7 +101,14 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.271" />
             </LinearLayout>
-
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="En tv ahora"
+                android:textColor="@color/darkyellow" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"

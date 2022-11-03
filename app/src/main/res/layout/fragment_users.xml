@@ -3,19 +3,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".views.users.UsersFragment">
+    tools:context=".views.users.UsersFragment"
+    android:background="@color/darkblue">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="USERS" />
+        android:text="USERS"
+        android:textColor="@color/white"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:src="@drawable/descarga"/>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/_00211_03_512"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="logOut"
         android:id="@+id/logout"
-        android:layout_margin="50dp"/>
+        android:backgroundTint="@color/lightgreen"
+       />
+    </LinearLayout>
 </FrameLayout>

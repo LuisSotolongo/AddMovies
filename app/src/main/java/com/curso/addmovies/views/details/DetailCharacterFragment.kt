@@ -96,9 +96,7 @@ class DetailCharacterFragment : Fragment() {
                    if (birthayActor != null) {
                        birthayActor.text = i.birthday
                    }
-                   if (popularityActor != null) {
-                       popularityActor.text = i.popularity.toString()
-                   }
+
 
 
                    val urlImages = ApiService.URL_IMAGES + i.profile_path

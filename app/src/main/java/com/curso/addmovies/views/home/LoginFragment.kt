@@ -39,12 +39,19 @@ class LoginFragment : Fragment() {
         btnLogin.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registroFragment)
         }
+
+
+
         btnLoginHome.setOnClickListener {
+            if (email.text.isNotEmpty() && password.text.isNotEmpty()){
             loginUsuario(email.text.toString(),password.text.toString())
 
+
+    }else{
+            Toast.makeText(context, "Debes Introducir datos validos para entrar",
+                Toast.LENGTH_SHORT).show()
         }
-
-
+    }
     }
     fun loginUsuario(email: String, password:String){
         auth.signInWithEmailAndPassword(email, password)

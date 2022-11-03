@@ -4,20 +4,25 @@
 
     <item
         android:id="@+id/action_home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:title="Home" />
+        android:icon="@drawable/ic_twotone_home_24"
+        android:title="Home"
+        />
     <item
         android:id="@+id/action_movies"
-        android:icon="@drawable/ic_outline_movie_24"
-        android:title="Movies" />
+        android:icon="@drawable/ic_twotone_movie_creation_24"
+        android:title="Movies"
+        android:iconTintMode="add"
+        />
     <item
         android:id="@+id/action_tv"
-        android:icon="@drawable/ic_outline_movie_24"
-        android:title="Tv" />
+        android:icon="@drawable/ic_twotone_tv_24"
+        android:title="Tv"
+        />
     <item
         android:id="@+id/action_users"
-        android:icon="@drawable/ic_baseline_recent_actors_24"
-        android:title="LogOut" />
+        android:icon="@drawable/ic_twotone_recent_actors_24"
+        android:title="LogOut"
+        />
 
 
 </menu>

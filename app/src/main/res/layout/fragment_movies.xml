@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/darkblue"
     android:orientation="vertical"
     tools:context=".views.home.HomeFragment">
@@ -17,6 +17,7 @@
         android:indeterminateTint="@color/purple_700"
         android:indeterminateTintMode="src_atop"
         android:visibility="gone" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -25,11 +26,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
-            <LinearLayout
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="horizontal"
-                android:id="@+id/popular">
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Popular"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/darkyellow" />
+
+            <LinearLayout
+                android:id="@+id/popular"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/popular_recyclerview"
                     android:layout_width="match_parent"
@@ -42,12 +55,24 @@
                     app:layout_constraintVertical_bias="0.271" />
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Pelicula del día"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/darkyellow" />
+
+            <LinearLayout
+                android:id="@+id/trending"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/popular"
-                android:id="@+id/trending">
+                android:layout_marginTop="10dp"
+                android:labelFor="@+id/popular"
+                android:orientation="horizontal">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/trending_recyclerview"
                     android:layout_width="match_parent"
@@ -59,12 +84,24 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.271" />
             </LinearLayout>
-            <LinearLayout
+
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="En Cartelera"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/darkyellow" />
+
+            <LinearLayout
+                android:id="@+id/nowplaying"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/trending"
-                android:id="@+id/nowplaying">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/nowplaying_recyclerview"
                     android:layout_width="match_parent"
@@ -77,12 +114,22 @@
                     app:layout_constraintVertical_bias="0.271" />
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Mejor Valoradas"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/darkyellow" />
+
+            <LinearLayout
+                android:id="@+id/toprated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/nowplaying"
-                android:id="@+id/toprated">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/toprated_recyclerview"
@@ -96,12 +143,22 @@
                     app:layout_constraintVertical_bias="0.271" />
             </LinearLayout>
 
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="horizontal"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="Proximamente"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/darkyellow" />
+
+            <LinearLayout
+                android:id="@+id/upcoming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/toprated"
-                android:id="@+id/upcoming">
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/upcomming_recyclerview"

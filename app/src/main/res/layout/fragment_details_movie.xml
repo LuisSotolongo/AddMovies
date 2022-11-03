@@ -70,8 +70,23 @@
                                 android:layout_gravity="bottom|end"
                                 android:layout_margin="16dp"
                                 android:elevation="16dp"
-                                app:iconTint="@color/white"
-                                app:srcCompat="@drawable/ic_baseline_star_border_24" />
+                                android:backgroundTint="@color/lightblue"
+                                app:tint="@color/darkyellow"
+                                app:srcCompat="@drawable/ic_twotone_star_56" />
+
+                            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                                android:id="@+id/floating_action_play"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center|end"
+                                android:layout_marginBottom="16dp"
+                                android:layout_marginEnd="16dp"
+                                app:tint="@color/darkyellow"
+                                android:scaleType="center"
+                                android:elevation="16dp"
+                                android:backgroundTint="@color/lightblue"
+                                app:srcCompat="@drawable/ic_twotone_play_arrow_24"
+                                />
                         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
                         <LinearLayout
@@ -96,13 +111,13 @@
                                     android:orientation="vertical"
                                     android:paddingBottom="70dp">
 
-                                    <!-- Title, secondary and supporting text -->
+
                                     <TextView
                                         android:id="@+id/titleDetailMovie"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:fontFamily="@font/roboto_bold"
-                                        android:text="titulo"
+
 
                                         android:textAppearance="?attr/textAppearanceHeadline6"
                                         android:textColor="@color/white"
@@ -114,10 +129,10 @@
                                         android:layout_height="wrap_content"
                                         android:layout_marginTop="8dp"
                                         android:fontFamily="@font/roboto_medium"
-                                        android:text="sinopsis"
+
 
                                         android:textAppearance="?attr/textAppearanceBody2"
-                                        android:textColor="@color/white"
+                                        android:textColor="@color/darkyellow"
 
                                         android:textStyle="bold" />
 

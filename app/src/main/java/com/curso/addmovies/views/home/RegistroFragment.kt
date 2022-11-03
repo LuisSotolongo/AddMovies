@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
@@ -44,15 +43,12 @@ class RegistroFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val toolbar = view.findViewById<MaterialToolbar>(R.id.toolbarRegistro)
-        toolbar.title = "Registrate"
-
-
-
-
 
 
         val navHostFragment = NavHostFragment.findNavController(this);
         NavigationUI.setupWithNavController(toolbar, navHostFragment)
+        toolbar.title = "Registrate"
+
 
         val btnRegistro = view.findViewById<Button>(R.id.btnRegister)
         auth = Firebase.auth
@@ -62,8 +58,14 @@ class RegistroFragment : Fragment() {
 
 
         btnRegistro.setOnClickListener {
-            crearCuenta(email.text.toString(), password.text.toString(), name.text.toString())
 
+            if (name.text.isNotEmpty() && email.text.isNotEmpty() && password.text.isNotEmpty()) {
+                crearCuenta(email.text.toString(), password.text.toString(), name.text.toString())
+            } else {
+                Toast.makeText(context, "Todos los datos son Obligatorios",
+                    Toast.LENGTH_SHORT).show()
+
+            }
 
         }
 
@@ -85,7 +87,7 @@ class RegistroFragment : Fragment() {
                     // If sign in fails, display a message to the user.
                     Log.w("CREAR CUENTA ERROR", "createUserWithEmail:failure", task.exception)
                     Toast.makeText(
-                        context, "Authentication failed.",
+                        context, "Usuario ya registrado introduce otro Email.",
                         Toast.LENGTH_SHORT
                     ).show()
 
