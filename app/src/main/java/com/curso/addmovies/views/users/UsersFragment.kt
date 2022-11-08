@@ -1,21 +1,27 @@
 package com.curso.addmovies.views.users
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+
 import com.curso.addmovies.R
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 
 class UsersFragment : Fragment() {
-    private lateinit var auth: FirebaseAuth
+    private lateinit var auth: Firebase
 
+    var db = Firebase.firestore
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,17 +38,22 @@ class UsersFragment : Fragment() {
              Firebase.auth.signOut()
              findNavController().navigate(R.id.action_containerFragment_to_splashFragment)
          }
+
+
+
+
+
     }
 
+/*
+private fun changePhoto(){
+    val items = arrayOf("Selfie", "Elige una foto")
 
-    /*   toolbar.setOnMenuItemClickListener {
-          when (it.itemId) {
-              R.id.LogOut -> {
+    MaterialAlertDialogBuilder(this)
 
-                  findNavController().navigate(R.id.action_homeFragment_to_splashFragment)
-              }
+}
+*/
 
-          }
-          true
-      }*/
+
+
 }

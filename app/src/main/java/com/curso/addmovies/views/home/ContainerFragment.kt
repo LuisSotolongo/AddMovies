@@ -6,11 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import com.curso.addmovies.R
 import com.curso.addmovies.views.movies.MoviesFragment
 import com.curso.addmovies.views.tv.TvFragment
 import com.curso.addmovies.views.users.UsersFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
@@ -31,10 +33,13 @@ class ContainerFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         bottomNavigation(view)
+        val user = Firebase.auth.currentUser
 
 
     }
-   private fun bottomNavigation(view: View) {
+
+
+    private fun bottomNavigation(view: View) {
         val bottom_navigation_view =
             view.findViewById<BottomNavigationView>(R.id.bottom_navigation_view)
 

@@ -48,7 +48,6 @@ class DetailsMovieFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
         val toolbar = view.findViewById<MaterialToolbar>(R.id.toolbarDetailMovie)
 
 
@@ -77,11 +76,11 @@ class DetailsMovieFragment : Fragment() {
 
                     }
                 }
-             launch {
-                 viewModelCast.movieCast.collect{
-                      adapterCast.updateData(it.cast)
-                 }
-             }
+                launch {
+                    viewModelCast.movieCast.collect {
+                        adapterCast.updateData(it.cast)
+                    }
+                }
 
             }
 
@@ -96,72 +95,73 @@ class DetailsMovieFragment : Fragment() {
         }
 
 
-
         val moviesRecyclerCast = view.findViewById<RecyclerView>(R.id.cast_recyclerview)
-        moviesRecyclerCast.layoutManager = LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
+        moviesRecyclerCast.layoutManager =
+            LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false)
         moviesRecyclerCast.adapter = adapterCast
 
 
+        val idMovie = DataHolder.idMovie
 
 
-val idMovie = DataHolder.idMovie
-
-
-       viewModel.getMovie(idMovie.toString())
+        viewModel.getMovie(idMovie.toString())
         viewModelCast.getCast(idMovie.toString())
 
 
-
     }
-        fun pintarDatos(datospeliculas: List<Movie>) {
 
-            for (i in datospeliculas) {
+    fun pintarDatos(datospeliculas: List<Movie>) {
 
-                val movie = view?.findViewById<TextView>(R.id.titleDetailMovie)
-                val imagemovie = view?.findViewById<ImageView>(R.id.detailImageMovie)
-                val card = view?.findViewById<CardView>(R.id.cardDetailMovie)
-                val backgroundImage = view?.findViewById<ImageView>(R.id.backgroundImage)
-                val sinopsis = view?.findViewById<TextView>(R.id.overview)
-               // val popularidad = view?.findViewById<TextView>(R.id.popularidad)
-                val releaseDate = view?.findViewById<TextView>(R.id.releaseDate)
-                //val mediaVoto = view?.findViewById<TextView>(R.id.mediaVoto)
-                //val votos = view?.findViewById<TextView>(R.id.votos)
+        for (i in datospeliculas) {
 
 
-                Log.v("TITULO", "${i.title}")
+            val movie = view?.findViewById<TextView>(R.id.titleDetailMovie)
+            val imagemovie = view?.findViewById<ImageView>(R.id.detailImageMovie)
+            val card = view?.findViewById<CardView>(R.id.cardDetailMovie)
+            val backgroundImage = view?.findViewById<ImageView>(R.id.backgroundImage)
+            val sinopsis = view?.findViewById<TextView>(R.id.overview)
+            // val popularidad = view?.findViewById<TextView>(R.id.popularidad)
+            val releaseDate = view?.findViewById<TextView>(R.id.releaseDate)
+            //val mediaVoto = view?.findViewById<TextView>(R.id.mediaVoto)
+            //val votos = view?.findViewById<TextView>(R.id.votos)
 
-                if (movie != null) {
-                    movie.text = "Titulo: ${i.title}"
-                }
-                if (sinopsis != null) {
-                    sinopsis.text = "Sinopsis\n ${i.overview}"
-                }
-               /* if (popularidad != null) {
-                    popularidad.text = " Popularidad:\n ${i.popularity.toString()}"
-                }*/
-                if (releaseDate != null) {
-                    releaseDate.text = "Fecha Estreno:\n ${i.release_date}"
-                }
-               /* if (mediaVoto != null) {
-                    mediaVoto.text = "Media Votos:\n ${i.vote_average.toString()}"
-                }*/
-                /*if (votos != null) {
-                    votos.text = "Votos:\n ${i.vote_count.toString()}"
-                }*/
 
-                val urlImages = ApiService.URL_IMAGES + i.poster_path
-                if (card != null) {
-                    if (imagemovie != null) {
-                        Glide.with(card).load(urlImages).into(imagemovie)
-                    }
-                }
-                val urlImagesback = ApiService.URL_IMAGES + i.backdrop_path
-                context?.let {
-                    if (backgroundImage != null) {
-                        Glide.with(it).load(urlImagesback).into(backgroundImage)
-                    }
+            Log.v("TITULO", "${i.title}")
+
+            if (movie != null) {
+                movie.text = " ${i.title}"
+            }
+            if (sinopsis != null) {
+                sinopsis.text = "Sinopsis\n ${i.overview}"
+            }
+            /* if (popularidad != null) {
+                 popularidad.text = " Popularidad:\n ${i.popularity.toString()}"
+             }*/
+            var date = i.release_date
+            var dateOk = date?.split('-')?.reversed()?.joinToString('-'.toString())
+            if (releaseDate != null) {
+                releaseDate.text = "Fecha Estreno: $dateOk"
+            }
+            /* if (mediaVoto != null) {
+                 mediaVoto.text = "Media Votos:\n ${i.vote_average.toString()}"
+             }*/
+            /*if (votos != null) {
+                votos.text = "Votos:\n ${i.vote_count.toString()}"
+            }*/
+
+            val urlImages = ApiService.URL_IMAGES + i.poster_path
+            if (card != null) {
+                if (imagemovie != null) {
+                    Glide.with(card).load(urlImages).into(imagemovie)
                 }
             }
+            val urlImagesback = ApiService.URL_IMAGES + i.backdrop_path
+            context?.let {
+                if (backgroundImage != null) {
+                    Glide.with(it).load(urlImagesback).into(backgroundImage)
+                }
+            }
+        }
 
     }
 }

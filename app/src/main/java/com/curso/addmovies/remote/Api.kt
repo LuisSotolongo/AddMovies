@@ -130,4 +130,12 @@ interface Api {
         @Query("language") language: String = ApiService.language,
     ): Response<Tv>
 
+
+    @GET("person/{person_id}/movie_credits?")
+    suspend fun getCharactersMovies(
+        @Path("person_id") personId : String,
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<ActorsMovies>
+
 }

@@ -1,6 +1,9 @@
 package com.curso.addmovies.views.home
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -27,14 +30,17 @@ class SplashFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         auth = Firebase.auth
-
         val currentUser = auth.currentUser
-        if(currentUser != null){
-            findNavController().navigate(R.id.action_splashFragment_to_containerFragment)
-        }else{
-            //Thread.sleep(2000)
-            findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
-        }
+        Handler(Looper.getMainLooper()).postDelayed({
+            if(currentUser != null){
+                findNavController().navigate(R.id.action_splashFragment_to_containerFragment)
+            }else{
+                //Thread.sleep(2000)
+                findNavController().navigate(R.id.action_splashFragment_to_loginFragment)
+            }
+        }, 3000)
+
+
 
     }
 
