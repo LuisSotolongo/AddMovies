@@ -12,5 +12,5 @@
     <color name="lightgreen">#737962</color>
     <color name="darkyellow">#9f8e49</color>
     <color name="yellow">#d1a72b</color>
-
+    <color name="inactive">#FFFFFFFF</color>
 </resources>

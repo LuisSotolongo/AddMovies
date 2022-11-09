@@ -27,7 +27,7 @@
         android:foregroundGravity="center"
         app:itemIconSize="40dp"
         app:itemTextColor="@color/white"
-        app:itemIconTint="@color/yellow"
+        app:itemIconTint="@drawable/bottom_nav_icon__selector"
         app:menu="@menu/menu_button"
         android:elevation="10dp"
 

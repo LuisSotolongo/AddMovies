@@ -49,6 +49,7 @@ class ContainerFragment : Fragment() {
 
                 R.id.action_home -> {
                     goToFragment(HomeFragment())
+
                     true
                 }
                 R.id.action_movies -> {

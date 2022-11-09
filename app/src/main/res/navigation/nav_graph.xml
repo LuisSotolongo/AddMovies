@@ -130,6 +130,12 @@
         <action
             android:id="@+id/action_detailCharacterFragment_to_moviesFragment"
             app:destination="@id/moviesFragment" />
+        <action
+            android:id="@+id/action_detailCharacterFragment_to_detailsMovieFragment"
+            app:destination="@id/detailsMovieFragment" />
+        <action
+            android:id="@+id/action_detailCharacterFragment_to_detailsTvFragment"
+            app:destination="@id/detailsTvFragment" />
     </fragment>
     <fragment
         android:id="@+id/movieSearchFragment"

@@ -19,19 +19,15 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbarDetailCharacter"
-        >
+        android:layout_below="@+id/toolbarDetailCharacter">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
 
-                android:orientation="vertical">
 
 
                 <com.google.android.material.card.MaterialCardView
@@ -39,92 +35,106 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    app:cardElevation="10dp"
-                    android:backgroundTint="@color/darkblue">
-
-
-
+                    android:backgroundTint="@color/darkblue"
+                    app:cardElevation="10dp">
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
+
                         android:orientation="vertical">
 
-                        <!-- Media -->
+                    <LinearLayout
+                        android:id="@+id/first"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
 
                         <ImageView
                             android:id="@+id/detailImageCharacter"
                             android:layout_width="160dp"
-                            android:layout_height="200dp"
+                            android:layout_height="220dp"
+                            android:layout_gravity="start"
                             android:contentDescription="imagen pelicula"
                             android:scaleType="centerCrop" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
+                        <TextView
+                            android:id="@+id/birthday"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:orientation="vertical"
-                            android:padding="16dp">
+                            android:layout_gravity="end"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="@color/white" />
+                    </LinearLayout>
 
-                            <!-- Title, secondary and supporting text -->
-                            <TextView
-                                android:id="@+id/nameCharacter"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/roboto_bold"
-                                android:text="titulo"
-                                android:textColor="@color/white"
-                                android:textAppearance="?attr/textAppearanceHeadline6"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/biography"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/roboto_medium"
-                                android:text="Biografía"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="@color/darkyellow"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/birthday"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="@color/white"/>
-
-                            <TextView
-                                android:id="@+id/place_of_birth"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="@color/white"/>
-
-                            <TextView
-                                android:id="@+id/popularity"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:fontFamily="@font/roboto_regular"
-                                android:textAppearance="?attr/textAppearanceBody2"
-                                android:textColor="@color/white" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp"
+                        >
 
 
+                        <TextView
+                            android:id="@+id/nameCharacter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/roboto_bold"
+                            android:text="titulo"
+                            android:textAppearance="?attr/textAppearanceHeadline6"
+                            android:textColor="@color/white"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/biography"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/roboto_medium"
+                            android:text="Biografía"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="@color/darkyellow"
+                            android:textStyle="bold" />
+
+
+                        <TextView
+                            android:id="@+id/place_of_birth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="@color/white" />
+
+                        <TextView
+                            android:id="@+id/popularity"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/roboto_regular"
+                            android:textAppearance="?attr/textAppearanceBody2"
+                            android:textColor="@color/white" />
 
 
                     </LinearLayout>
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
-            </LinearLayout>
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:text="Filmografía"
+                   android:textColor="@color/white"
+                   android:textStyle="bold"
+                   android:layout_marginStart="5dp"
+                   android:fontFamily="@font/roboto_regular"/>
 
-          <LinearLayout
+            <LinearLayout
                 android:id="@+id/castMovies"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="wrap_content"
 
                 android:orientation="horizontal">
 

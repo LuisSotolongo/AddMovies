@@ -24,7 +24,7 @@ class GetCharacterMoviesAdapter(val onClickCharacterMovie: (CastX) -> Unit) :
         viewType: Int
     ): GetCharacterMoviesAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_block_moviegetpopular, parent, false)
+            .inflate(R.layout.item_block_character_movies, parent, false)
         return ViewHolder(view)
     }
 
