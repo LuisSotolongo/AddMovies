@@ -125,7 +125,7 @@ interface Api {
 
     @GET("tv/{tv_id}")
     suspend fun getTvDetails(
-        @Path("tv_id") tvId : String,
+        @Path("tv_id") tvId: String,
         @Query("api_key") apikey: String = ApiService.api_key,
         @Query("language") language: String = ApiService.language,
     ): Response<Tv>
@@ -133,9 +133,16 @@ interface Api {
 
     @GET("person/{person_id}/movie_credits?")
     suspend fun getCharactersMovies(
-        @Path("person_id") personId : String,
+        @Path("person_id") personId: String,
         @Query("api_key") apikey: String = ApiService.api_key,
         @Query("language") language: String = ApiService.language,
     ): Response<ActorsMovies>
+
+    @GET("movie/{movie_id}/videos?")
+    suspend fun getTrailers(
+        @Path("movie_id") idmovie: String,
+        @Query("api_key") apikey: String = ApiService.api_key,
+        @Query("language") language: String = ApiService.language,
+    ): Response<Trailers>
 
 }

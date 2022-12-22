@@ -17,7 +17,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.curso.addmovies.DataHolder
 import com.curso.addmovies.R
 import com.curso.addmovies.adapters.getmovies.*
-import com.curso.addmovies.adapters.gettv.*
+import com.curso.addmovies.adapters.getmovies.gettv.GetTvAiringTodayAdapter
+import com.curso.addmovies.adapters.getmovies.gettv.GetTvOnAirAdapter
+import com.curso.addmovies.adapters.getmovies.gettv.GetTvPopularAdapter
+import com.curso.addmovies.adapters.getmovies.gettv.GetTvTopRatedAdapter
+
 import com.curso.addmovies.views.gettv.*
 import kotlinx.coroutines.launch
 
