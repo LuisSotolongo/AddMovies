@@ -1,4 +1,4 @@
-package com.curso.addmovies.adapters.gettv
+package com.curso.addmovies.adapters.getmovies.gettv
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,44 +13,44 @@ import com.curso.addmovies.R
 import com.curso.addmovies.models.Tv
 import com.curso.demo_retrofit.remote.ApiService
 
-class GetTvOnAirAdapter (val onClickOnAir: (Tv) -> Unit) :
-    RecyclerView.Adapter<GetTvOnAirAdapter.ViewHolder>() {
+class GetTvTopRatedAdapter (val onClickTopRated: (Tv) -> Unit) :
+    RecyclerView.Adapter<GetTvTopRatedAdapter.ViewHolder>() {
 
-    var dataTVOnAir = mutableListOf<Tv>()
+    var dataTVTopRated = mutableListOf<Tv>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_block_gettvonair, parent, false)
+            .inflate(R.layout.item_block_gettvtoprated, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(dataTVOnAir[position])
+        holder.bind(dataTVTopRated[position])
     }
 
     override fun getItemCount(): Int {
-        return dataTVOnAir.size
+        return dataTVTopRated.size
     }
 
     fun updateData(moviesData: List<Tv>) {
-        dataTVOnAir = moviesData.toMutableList()
+        dataTVTopRated = moviesData.toMutableList()
         notifyDataSetChanged()
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val imageTvOnAir = itemView.findViewById<ImageView>(R.id.imageTvOnAir)
-        val cardTvOnAir = itemView.findViewById<CardView>(R.id.cardtvOnAir)
-        val title = itemView.findViewById<TextView>(R.id.titleTvOnAir)
+        val imageTVTopRated = itemView.findViewById<ImageView>(R.id.imageTvTopRated)
+        val cardTVTopRated = itemView.findViewById<CardView>(R.id.cardtvTopRated)
+        val title = itemView.findViewById<TextView>(R.id.titleTvTopRated)
 
         fun bind(item: Tv) {
             title.text = item.name
-            val urlImagesTvOnAir = ApiService.URL_IMAGES + item.poster_path
-            Glide.with(cardTvOnAir).load(urlImagesTvOnAir).into(imageTvOnAir)
-            cardTvOnAir.setOnClickListener {
+            val urlImagesTVTopRated = ApiService.URL_IMAGES + item.poster_path
+            Glide.with(cardTVTopRated).load(urlImagesTVTopRated).into(imageTVTopRated)
+            cardTVTopRated.setOnClickListener {
                 Log.v("Pulso sobre TV Airing Today", item.id.toString())
-                onClickOnAir(item)
+                onClickTopRated(item)
             }
         }
     }

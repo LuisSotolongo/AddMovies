@@ -103,7 +103,7 @@ class DetailCharacterFragment : Fragment() {
         val idMovie = DataHolder.idMovie
         viewModelActor.getActorDetail(idMovie.toString())
         viewModelCharacterMovies.getCharacMovies(idMovie.toString())
-        Log.v("COÑO", "${idMovie.toString()}")
+        Log.v("detail Character id", "${idMovie.toString()}")
     }
 
     private fun pintarDatosActor(datosActor: List<Actor>) {
@@ -118,9 +118,12 @@ class DetailCharacterFragment : Fragment() {
 
         for (i in datosActor) {
 
-            if (nameActor != null) {
+            nameActor?.let {
                 nameActor.text = i.name
             }
+            /*if (nameActor != null) {
+                nameActor.text = i.name
+            }*/
             if (biographyActor != null) {
                 biographyActor.text = i.biography
             }

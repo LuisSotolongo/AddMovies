@@ -14,7 +14,7 @@ object ApiService {
     val language = "es-ES"
     val language1 = "en-US"
     val URL_IMAGES = "https://image.tmdb.org/t/p/w500/"
-
+    val Video_Trailer = "https://www.youtube.com/watch?v="
 
     init {
         initService()

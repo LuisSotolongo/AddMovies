@@ -1,4 +1,4 @@
-package com.curso.addmovies.adapters.gettv
+package com.curso.addmovies.adapters.getmovies.gettv
 
 import android.util.Log
 import android.view.LayoutInflater

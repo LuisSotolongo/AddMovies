@@ -19,7 +19,7 @@ import com.curso.addmovies.DataHolder
 import com.curso.addmovies.R
 import com.curso.addmovies.adapters.getmovies.GetNowPlayingAdapter
 import com.curso.addmovies.adapters.getmovies.GetTrendingAdapter
-import com.curso.addmovies.adapters.gettv.GetTvAiringTodayAdapter
+import com.curso.addmovies.adapters.getmovies.gettv.GetTvAiringTodayAdapter
 import com.curso.addmovies.adapters.search.GetSearchMultiAdapter
 import com.curso.addmovies.views.getmovies.GetMoviesNowPlayingViewModel
 import com.curso.addmovies.views.getmovies.GetMoviesTrendingViewModel

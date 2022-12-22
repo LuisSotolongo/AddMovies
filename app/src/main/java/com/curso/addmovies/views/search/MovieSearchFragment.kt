@@ -19,7 +19,7 @@ import com.curso.addmovies.DataHolder.name
 import com.curso.addmovies.R
 import com.curso.addmovies.adapters.getmovies.GetNowPlayingAdapter
 import com.curso.addmovies.adapters.getmovies.GetTrendingAdapter
-import com.curso.addmovies.adapters.gettv.GetTvAiringTodayAdapter
+import com.curso.addmovies.adapters.getmovies.gettv.GetTvAiringTodayAdapter
 import com.curso.addmovies.adapters.search.GetSearchMultiAdapter
 import kotlinx.coroutines.launch
 

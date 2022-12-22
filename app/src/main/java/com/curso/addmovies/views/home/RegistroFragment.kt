@@ -59,11 +59,11 @@ class RegistroFragment : Fragment() {
 
         btnRegistro.setOnClickListener {
 
-            if (name.text.isNotEmpty() && email.text.isNotEmpty() && password.text.isNotEmpty()) {
+            if (name.text.isNotEmpty() && email.text.isNotEmpty() && password.text.isNotEmpty() && password.text.length >= 6) {
                 crearCuenta(email.text.toString(), password.text.toString(), name.text.toString())
             } else {
-                Toast.makeText(context, "Todos los datos son Obligatorios",
-                    Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Los campos son obligatorios, el password minimo 6 caracteres",
+                    Toast.LENGTH_LONG).show()
 
             }
 
